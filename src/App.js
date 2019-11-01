@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ListItems from './components/listItems';
+import Search from './components/search';
 
 class App extends Component {
   render () {
