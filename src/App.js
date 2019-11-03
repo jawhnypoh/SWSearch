@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ListItems from './components/listItems';
 import Search from './components/search';
+import Starships from './apis/starships';
 
 class App extends Component {
   render () {
@@ -17,23 +18,16 @@ class App extends Component {
   };
 
   handleSubmit = async (searchBarQuery) => {
-    const response = await starships.get("/search", {
+    const response = await Starships.get("/?}", {
       params: {
-        q: searchBarQuery
+        search: searchBarQuery
       }
     })
+
+    console.log("response data:", response.data)
     this.setState({
       listItems: response.data.results
     })
-  }
-
-  componentDidMount() {
-    fetch('https://swapi.co/api/starships')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ listItems: data.results })
-    })
-    .catch(console.log)
   }
 }
 

@@ -1,11 +1,8 @@
 import React from 'react';
 
 const ListItems = ({listItems}) => {
-    // console.log("starships: " + starships.toString());
-
     return(
         <div>
-            <center><h1>Star Wars Search</h1></center>
             {listItems.map((starship) => (
                 <div class="card">
                 <div class="card-body">
@@ -19,4 +16,4 @@ const ListItems = ({listItems}) => {
     );
 };
 
-export default ListItems
+export default ListItems;

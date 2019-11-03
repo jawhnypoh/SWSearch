@@ -19,13 +19,13 @@ class Search extends Component {
     render() {
         return(
             <div className="search-bar-div">
-                <form onSubmit={this.handleSubmit} className="ui-form">
+                <center><form onSubmit={this.handleSubmit} className="ui-form">
                     <div className="search-field">
-                        <label htmlFor="swapi-search">Search The SWAPI</label>
-                        <input onChange={this.handleChange} name='swapi-search'
+                        <label htmlFor="swapi-search">Search The SWAPI: </label>
+                        <input onChange={this.handleChange} name="swapi-search"
                         type="text" value={this.state.query} />
                     </div>
-                </form>
+                </form></center>
             </div>
         )
     }
