@@ -1,66 +1,34 @@
 import React, { Component } from 'react';
 
 class Search extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            query: null,
-            starships: [],
-        }
-    }
-
-    onChange = e => {
-        const { value } = e.target;
-        this.setState({
-            query: value
-        });
-
-        this.searchStarships(value);
+    state = {
+        query: ''
     };
 
-    searchStarships(query) {
-        const URL = 'https://swapi.co/api/starships/';
+    handleChange = (event) => {
+        this.setState({
+            query: event.target.value
+        });
+    };
 
-        if(query) {
-            let queryURL = URL + '?search=${query}';
-            console.log(queryURL);
-
-            fetch(queryURL)
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ starships: data.results })
-            })
-            console.log("Search state: ", this.state.starships)
-            .catch(console.log)
-        }
-        else {
-            // Query was empty, so just return default results from API
-            fetch(URL)
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ starships: data.results })
-            })
-            console.log("Search state: ", this.state.starships)
-            .catch(console.log)
-        }
-    }
-
-    componentDidMount() {
-        this.searchStarships(this.state.query);
+    handleSubmit = event => {
+        event.preventDefault();
+        this.props.handleFormSubmit(this.state.query);
     }
 
     render() {
         return(
-            <form>
-                <input
-                    type="text"
-                    className="search-box"
-                    placeholder="Search for..."
-                    onChange={this.onChange} />
-            </form>
+            <div className="search-bar-div">
+                <form onSubmit={this.handleSubmit} className="ui-form">
+                    <div className="search-field">
+                        <label htmlFor="swapi-search">Search The SWAPI</label>
+                        <input onChange={this.handleChange} name='swapi-search'
+                        type="text" value={this.state.query} />
+                    </div>
+                </form>
+            </div>
         )
     }
-
 }
 
 export default Search;

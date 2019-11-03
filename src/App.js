@@ -5,13 +5,27 @@ import Search from './components/search';
 class App extends Component {
   render () {
     return (
-      <ListItems listItems={this.state.listItems} />
+      <div>
+        <Search handleFormSubmit={this.handleSubmit} />
+        <ListItems listItems={this.state.listItems} />
+      </div>
     );
   }
 
   state = {
     listItems: []
   };
+
+  handleSubmit = async (searchBarQuery) => {
+    const response = await starships.get("/search", {
+      params: {
+        q: searchBarQuery
+      }
+    })
+    this.setState({
+      listItems: response.data.results
+    })
+  }
 
   componentDidMount() {
     fetch('https://swapi.co/api/starships')
