@@ -4,11 +4,11 @@ const ListItems = ({listItems}) => {
     return(
         <div>
             {listItems.map((starship) => (
-                <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">{starship.name}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Model: {starship.model}</h6>
-                  <p class="card-text">Crews: {starship.crew}</p>
+                <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{starship.name}</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">Model: {starship.model}</h6>
+                  <p className="card-text">Crews: {starship.crew}</p>
                 </div>
               </div>
             ))}
