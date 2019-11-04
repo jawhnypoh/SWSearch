@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Paper, InputBase } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
 
 class Search extends Component {
     state = {
@@ -20,11 +22,14 @@ class Search extends Component {
         return(
             <div className="search-bar-div">
                 <center><form onSubmit={this.handleSubmit} className="ui-form">
-                    <div className="search-field">
-                        <label htmlFor="swapi-search">Search The SWAPI: </label>
-                        <input onChange={this.handleChange} name="swapi-search"
-                        type="text" value={this.state.query} />
-                    </div>
+                    <Paper className="search-field">
+                        <SearchIcon color="grey"/>
+                        <InputBase
+                            className="swapi-search"
+                            placeholder="Search the SWAPI..."
+                            onChange={this.handleChange} name="swapi-search"
+                            type="text" value={this.state.query} />
+                    </Paper>
                 </form></center>
             </div>
         )

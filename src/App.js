@@ -18,7 +18,7 @@ class App extends Component {
   };
 
   handleSubmit = async (searchBarQuery) => {
-    const response = await Starships.get("/?}", {
+    const response = await Starships.get("/?", {
       params: {
         search: searchBarQuery
       }
