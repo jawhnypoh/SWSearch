@@ -7,6 +7,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div.card {
+  margin: 10px;
+}
+
+.search-field {
+  margin: 10px;
+  padding: 10px;
+}
+
+.swapi-search {
+  border-color: grey;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
