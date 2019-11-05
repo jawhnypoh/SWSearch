@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ListItems from './components/listItems';
+import ResultsList from './components/resultsList';
 import Search from './components/search';
 import Starships from './apis/starships';
 
@@ -8,13 +8,13 @@ class App extends Component {
     return (
       <div>
         <Search handleFormSubmit={this.handleSubmit} />
-        <ListItems listItems={this.state.listItems} />
+        <ResultsList resultsList={this.state.resultsList} />
       </div>
     );
   }
 
   state = {
-    listItems: []
+    resultsList: []
   };
 
   handleSubmit = async (searchBarQuery) => {
@@ -26,7 +26,7 @@ class App extends Component {
 
     console.log("response data:", response.data)
     this.setState({
-      listItems: response.data.results
+      resultsList: response.data.results
     })
   }
 }
