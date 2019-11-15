@@ -4,13 +4,14 @@ import SearchIcon from '@material-ui/icons/Search';
 
 class Search extends Component {
     state = {
-        query: ''
+        searchCategory: ''
     };
 
     handleChange = (event) => {
         this.setState({
-            query: event.target.value
+            searchCategory: event.target.value
         });
+        console.log(event.target.value);
     };
 
     handleSubmit = event => {
@@ -39,19 +40,24 @@ class Search extends Component {
                     <div className="radios-container">
                         <Radio
                             value="starships"
-                            onChange={this.setSearchCategory} /> Starships
+                            checked={this.state.searchCategory === "starships"}
+                            onChange={this.handleChange} /> Starships
                         <Radio
                             value="vehicles"
-                            onChange={this.setSearchCategory} /> Vehicles  
+                            checked={this.state.searchCategory === "vehicles"}
+                            onChange={this.handleChange} /> Vehicles  
                         <Radio
                             value="people"
-                            onChange={this.setSearchCategory} /> People 
+                            checked={this.state.searchCategory === "people"}
+                            onChange={this.handleChange} /> People 
                         <Radio
                             value="species"
-                            onChange={this.setSearchCategory} /> Species   
+                            checked={this.state.searchCategory === "species"}
+                            onChange={this.handleChange} /> Species   
                         <Radio
                             value="planets"
-                            onChange={this.setSearchCategory} /> Planets        
+                            checked={this.state.searchCategory === "planets"}
+                            onChange={this.handleChange} /> Planets        
                     </div>
                 </center>
             </div>
